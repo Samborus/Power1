@@ -54,8 +54,7 @@ function Add-Migration {
             $fileDownPath = "$($migration.pathSql)$($time)_Down_$($Name).sql"
 
             [System.IO.File]::WriteAllLines($fileUpPath, "")
-            [System.IO.File]::WriteAllLines($fileDownPath, "")
-            
+            [System.IO.File]::WriteAllLines($fileDownPath, "")            
             Write-Host "$(Split-Path $fileUpPath -leaf)`n$(Split-Path $fileDownPath -leaf)" -ForegroundColor Green
         }
 }    
