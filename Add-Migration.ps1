@@ -1,8 +1,7 @@
 function Add-Migration {
     <#
         .SYNOPSIS
-            Adds new Migration
-    
+            Adds new Migration    
         .EXAMPLE
             PS> Add-Migration SomeChange
         .EXAMPLE
@@ -31,7 +30,6 @@ function Add-Migration {
         $modulePath =  ($Env:PSModulePath.Split(";") | Where-Object { $_ -like "*Program Files\WindowsPowerShell\Modules*"}) +  "\KYC-CLI\"
         $migration = [pscustomobject]@{
                         template= "$($modulePath)Template-Migration$($templateNum).cs"; 
-                        # template= (Resolve-Path -Path ".\Template-Migration$($templateNum).cs").Path;
                         path= $ProjectPath + "ITM.SD.BGZ.KYC\ITM.SD.BGZ.KYC.Db\Migrations\"
                         pathSql= $ProjectPath + "ITM.SD.BGZ.KYC\ITM.SD.BGZ.KYC.Db\Migrations\"
                     }    
