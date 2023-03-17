@@ -28,9 +28,10 @@ function Add-Migration {
         if ($WithScript) {
             $templateNum = 1
         }
-
+        $modulePath =  ($Env:PSModulePath.Split(";") | Where-Object { $_ -like "*Program Files\WindowsPowerShell\Modules*"}) +  "\KYC-CLI\"
         $migration = [pscustomobject]@{
-                        template= ".\Template-Migration$($templateNum).cs"; 
+                        template= "$($modulePath)Template-Migration$($templateNum).cs"; 
+                        # template= (Resolve-Path -Path ".\Template-Migration$($templateNum).cs").Path;
                         path= $ProjectPath + "ITM.SD.BGZ.KYC\ITM.SD.BGZ.KYC.Db\Migrations\"
                         pathSql= $ProjectPath + "ITM.SD.BGZ.KYC\ITM.SD.BGZ.KYC.Db\Migrations\"
                     }    
